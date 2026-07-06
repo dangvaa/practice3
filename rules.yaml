@@ -1,0 +1,64 @@
+version: "1.0"
+project: "Student Code Quality Analyzer Core"
+language: "python"
+
+# Глобальная трассировка стандартов
+standards:
+  - iso_25010: "Product Quality Model (Reliability, Maintainability, Portability)"
+  - cwe: "Common Weakness Enumeration"
+
+rules:
+  - id: "STU-PY-01"
+    name: "MissingContextManager"
+    description: "Использование open() без контекстного менеджера 'with'. Риск утечки дескрипторов файлов."
+    severity: "MAJOR"
+    traceability:
+      cwe: ["CWE-772"]
+      iso_25010: "Reliability"
+    pattern: "ast.Call(func=ast.Name(id='open')) NOT inside ast.With"
+
+  - id: "STU-PY-02"
+    name: "SilentException"
+    description: "Пустой блок 'except:' или 'except Exception: pass'. Подавляет ошибки и затрудняет отладку."
+    severity: "MAJOR"
+    traceability:
+      cwe: ["CWE-391"]
+      iso_25010: "Reliability"
+    pattern: "ast.ExceptHandler(body=[ast.Pass]) or len(body)==0"
+
+  - id: "STU-PY-03"
+    name: "HighCyclomaticComplexity"
+    description: "Слишком высокая цикломатическая сложность функции (McCabe). Код трудно тестировать."
+    severity: "MAJOR"
+    traceability:
+      cwe: ["CWE-1076"]
+      iso_25010: "Maintainability"
+    threshold:
+      max_complexity: 10
+
+  - id: "STU-PY-04"
+    name: "NamingConventionViolation"
+    description: "Нарушение PEP 8: переменные и функции должны быть snake_case, классы - PascalCase."
+    severity: "MINOR"
+    traceability:
+      iso_25010: "Maintainability"
+    patterns:
+      snake_case: "^[a-z_][a-z0-9_]*$"
+      pascal_case: "^[A-Z][a-zA-Z0-9]*$"
+
+  - id: "STU-PY-05"
+    name: "MissingDocstring"
+    description: "Отсутствие строки документации (docstring) у публичного модуля, класса или функции."
+    severity: "MINOR"
+    traceability:
+      iso_25010: "Maintainability"
+    check_target: ["Module", "FunctionDef", "ClassDef"]
+
+  - id: "STU-PY-06"
+    name: "HardcodedAbsolutePath"
+    description: "Использование абсолютных путей в строках. Код не переносим между системами."
+    severity: "MAJOR"
+    traceability:
+      cwe: ["CWE-73", "CWE-426"]
+      iso_25010: "Portability"
+    pattern: "RegEx matching absolute paths (e.g., 'C:\\' or '/home/')"
