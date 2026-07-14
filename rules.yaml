@@ -2,7 +2,6 @@ version: "1.0"
 project: "Student Code Quality Analyzer Core"
 language: "python"
 
-# Глобальная трассировка стандартов
 standards:
   - iso_25010: "Product Quality Model (Reliability, Maintainability, Portability)"
   - cwe: "Common Weakness Enumeration"
