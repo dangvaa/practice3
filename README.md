@@ -28,4 +28,4 @@
 | **STU-PY-06** | HardcodedAbsolutePath | Поиск захардкоженных абсолютных путей (CWE-73). |
 
 ## Подробная документация доступна по ссылке:  
- [Документация](dangvaa.github.io/practice3/)
+ [Документация](https://dangvaa.github.io/practice3/)
