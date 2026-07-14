@@ -1,0 +1,25 @@
+site_name: Ядро Анализатора Качества Кода
+repo_url: https://github.com/dangvaa/practice3
+repo_name: GitHub
+edit_uri: blob/main/docs/
+
+theme:
+  name: material
+  language: ru
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+
+nav:
+  - "Введение": "index.md"
+  - "Установка": "installation.md"
+  - "Архитектура": "architecture.md"
+  - "Реализованные правила": "rules.md"
+  - "Руководство для разработчика": "dev_guide.md"
