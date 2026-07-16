@@ -25,7 +25,8 @@ docker-compose up -d --build
 
 Для анализа файла выполните команду docker exec:
 
-```bash
+```
+ash
 docker exec -it analyzer_app_cont python main.py student_lab.py
 ```
 
@@ -48,6 +49,7 @@ curl -X POST "http://localhost:8000/analyze" \
 Однако для доступа с вашего компьютера (например, через pgAdmin) порт проброшен как 5433, чтобы избежать конфликтов с локально установленным PostgreSQL.
 
 Параметры подключения для внешних инструментов:
+
 - Host: localhost
 - Port: 5433
 - User/Pass: из вашего файла .env
