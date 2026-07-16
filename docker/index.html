@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../architecture/">
+        <link rel="prev" href="../installation/">
       
       
-        <link rel="next" href="../dev_guide/">
+        <link rel="next" href="../architecture/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Реализованные правила - Ядро Анализатора Качества Кода</title>
+        <title>Развертывание в Docker - Ядро Анализатора Качества Кода</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#docker" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Реализованные правила
+              Развертывание в Docker
             
           </span>
         </div>
@@ -229,9 +229,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../docker/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -267,11 +269,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../rules/" class="md-tabs__link">
         
   
   
@@ -406,10 +406,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Развертывание в Docker
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -425,6 +452,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Подготовка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Запуск инфраструктуры
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Использование CLI (Терминал)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Использование API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Доступ к базе данных
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -460,37 +562,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Реализованные правила
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../rules/" class="md-nav__link">
         
   
   
@@ -506,92 +581,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-stu-py-01-missingcontextmanager" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. STU-PY-01: MissingContextManager
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-stu-py-02-silentexception" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. STU-PY-02: SilentException
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-stu-py-03-highcyclomaticcomplexity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. STU-PY-03: HighCyclomaticComplexity
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-stu-py-04-namingconventionviolation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. STU-PY-04: NamingConventionViolation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-stu-py-05-missingdocstring" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. STU-PY-05: MissingDocstring
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-stu-py-06-hardcodedabsolutepath" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. STU-PY-06: HardcodedAbsolutePath
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -650,10 +639,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-stu-py-01-missingcontextmanager" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. STU-PY-01: MissingContextManager
+        1. Подготовка
       
     </span>
   </a>
@@ -661,10 +650,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-stu-py-02-silentexception" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. STU-PY-02: SilentException
+        2. Запуск инфраструктуры
       
     </span>
   </a>
@@ -672,10 +661,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-stu-py-03-highcyclomaticcomplexity" class="md-nav__link">
+  <a href="#3-cli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. STU-PY-03: HighCyclomaticComplexity
+        3. Использование CLI (Терминал)
       
     </span>
   </a>
@@ -683,10 +672,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-stu-py-04-namingconventionviolation" class="md-nav__link">
+  <a href="#4-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. STU-PY-04: NamingConventionViolation
+        4. Использование API
       
     </span>
   </a>
@@ -694,21 +683,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-stu-py-05-missingdocstring" class="md-nav__link">
+  <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. STU-PY-05: MissingDocstring
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-stu-py-06-hardcodedabsolutepath" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. STU-PY-06: HardcodedAbsolutePath
+        5. Доступ к базе данных
       
     </span>
   </a>
@@ -735,80 +713,40 @@
   
 
 
-<h1 id="_1">Реализованные правила анализа</h1>
-<p>Ядро анализатора проверяет следующие 6 правил, классифицированных по международным стандартам CWE (Common Weakness Enumeration) и ISO 25010 (Product Quality Model).</p>
-<h2 id="1-stu-py-01-missingcontextmanager">1. STU-PY-01: MissingContextManager</h2>
-<ul>
-<li><strong>Описание:</strong> Использование <code>open()</code> без контекстного менеджера <code>with</code>. Это может привести к утечке дескрипторов файлов или другим проблемам с ресурсами.</li>
-<li><strong>Severity:</strong> MAJOR</li>
-<li><strong>Трассировка:</strong> CWE-772 (Missing Release of Resource), ISO 25010 (Reliability)</li>
-<li><strong>Пример плохого кода:</strong></li>
-</ul>
-<pre><code class="language-python">f = open('test.txt', 'w')
-f.write('data')
-# f.close() отсутствует
+<h1 id="docker">Развертывание и использование в Docker</h1>
+<p>Система полностью контейнеризирована с использованием <strong>Docker Compose</strong>. Это позволяет запустить ядро анализатора и базу данных PostgreSQL в изолированной среде одной командой.</p>
+<h2 id="1">1. Подготовка</h2>
+<p>Перед запуском убедитесь, что у вас установлены:
+- Docker
+- Docker Compose</p>
+<p>Скопируйте настройки из шаблона и заполните их (особенно пароль БД):</p>
+<pre><code class="language-bash">cp .env.example .env
 </code></pre>
-<h2 id="2-stu-py-02-silentexception">2. STU-PY-02: SilentException</h2>
-<ul>
-<li><strong>Описание:</strong> Пустой блок except: или except Exception: pass подавляет ошибки, затрудняя отладку и скрывая потенциальные проблемы в работе программы.</li>
-<li><strong>Severity:</strong> MAJOR</li>
-<li><strong>Трассировка:</strong> CWE-391 (Unchecked Error Condition), ISO 25010 (Reliability)</li>
-<li><strong>Пример плохого кода:</strong></li>
-</ul>
-<pre><code class="language-Python">try:
-    result = 1 / 0
-except:
-    pass # Ошибка проглочена
+<h2 id="2">2. Запуск инфраструктуры</h2>
+<p>Для сборки образов и запуска всех сервисов (API + БД) выполните:</p>
+<pre><code class="language-bash">docker-compose up -d --build
 </code></pre>
-<h2 id="3-stu-py-03-highcyclomaticcomplexity">3. STU-PY-03: HighCyclomaticComplexity</h2>
-<ul>
-<li><strong>Описание:</strong> Слишком высокая цикломатическая сложность функции. Код с высокой сложностью трудно читать, тестировать и поддерживать. Рекомендуется разбить такую функцию на несколько мелких.</li>
-<li><strong>Severity:</strong> MAJOR</li>
-<li><strong>Трассировка:</strong> CWE-1076 (Code Complexity), ISO 25010 (Maintainability)</li>
-<li><strong>Порог:</strong> &gt; 10 (показатель Маккейба)</li>
-<li><strong>Пример плохого кода:</strong></li>
-</ul>
-<pre><code class="language-Python">def complex_logic(x, y):
-    if x &gt; 0:
-        if y &gt; 0:
-            for i in range(x):
-                while i &lt; y:
-                    if x % i == 0:
-                        # ... очень много вложенностей ...
-                        pass
+<h2 id="3-cli">3. Использование CLI (Терминал)</h2>
+<p>Несмотря на то, что анализатор запущен в контейнере, вы можете проверять локальные файлы через командную строку. </p>
+<p>Для анализа файла выполните команду docker exec:</p>
+<pre><code class="language-bash">docker exec -it analyzer_app_cont python main.py student_lab.py
 </code></pre>
-<h2 id="4-stu-py-04-namingconventionviolation">4. STU-PY-04: NamingConventionViolation</h2>
-<ul>
-<li><strong>Описание:</strong> Имена функций и переменных не соответствуют стандарту PEP 8 (должны быть в стиле snake_case). Имена классов должны быть в PascalCase.</li>
-<li><strong>Severity:</strong> MINOR</li>
-<li><strong>Трассировка:</strong> ISO 25010 (Maintainability)</li>
-<li><strong>Пример плохого кода:</strong></li>
-</ul>
-<pre><code class="language-Python">def calculateResults(): # Должно быть calculate_results
-    pass
-MyVariable = 10 # Должно быть my_variable
+<h2 id="4-api">4. Использование API</h2>
+<p>После запуска через Docker Compose, API автоматически становится доступно на порту 8000.</p>
+<p>Интерактивная документация (Swagger): http://localhost:8000/docs
+Эндпоинт анализа: POST http://localhost:8000/analyze</p>
+<p>Пример запроса через cURL:</p>
+<pre><code class="language-Bash">curl -X POST &quot;http://localhost:8000/analyze&quot; \
+     -H &quot;Content-Type: application/json&quot; \
+     -d '{&quot;project_name&quot;: &quot;test&quot;, &quot;code&quot;: &quot;def func():\n    pass&quot;}'
 </code></pre>
-<h2 id="5-stu-py-05-missingdocstring">5. STU-PY-05: MissingDocstring</h2>
-<ul>
-<li><strong>Описание:</strong> Отсутствует строка документации (docstring) у публичной функции или класса. Docstrings необходимы для понимания кода другими разработчиками и автоматической генерации документации.</li>
-<li><strong>Severity:</strong> MINOR</li>
-<li><strong>Трассировка</strong>: ISO 25010 (Maintainability, Analysability)</li>
-<li><strong>Пример плохого кода:</strong></li>
-</ul>
-<pre><code class="language-Python">def my_function():
-    # Docstring отсутствует
-    pass
-</code></pre>
-<h2 id="6-stu-py-06-hardcodedabsolutepath">6. STU-PY-06: HardcodedAbsolutePath</h2>
-<ul>
-<li><strong>Описание:</strong> Использование абсолютных путей к файлам или директориям в строковых константах. Это делает программу непереносимой между различными операционными системами или окружениями.</li>
-<li><strong>Severity:</strong> MAJOR</li>
-<li><strong>Трассировка:</strong> CWE-73 (External Control of File Name or Path), ISO 25010 (Portability)</li>
-<li><strong>Пример плохого кода:</strong></li>
-</ul>
-<pre><code class="language-Python">file_path = &quot;C:/Users/username/data.txt&quot; # Windows
-log_dir = &quot;/home/user/logs/&quot;              # Linux
-</code></pre>
+<h2 id="5">5. Доступ к базе данных</h2>
+<p>Внутри сети Docker база данных работает на стандартном порту 5432.
+Однако для доступа с вашего компьютера (например, через pgAdmin) порт проброшен как 5433, чтобы избежать конфликтов с локально установленным PostgreSQL.</p>
+<p>Параметры подключения для внешних инструментов:
+- Host: localhost
+- Port: 5433
+- User/Pass: из вашего файла .env</p>
 
 
 
