@@ -27,36 +27,62 @@ class BaseChecker(ast.NodeVisitor):
 
 
 class NamingChecker(BaseChecker):
-    """Отвечает за именование (PEP8) и документацию."""
+    """Отвечает за проверку именования и расчет метрик документированности."""
+
+    SNAKE_CASE_PATTERN = re.compile(r"^[a-z_][a-z0-9_]*$")
+    PASCAL_CASE_PATTERN = re.compile(r"^[A-Z][a-zA-Z0-9]*$")
 
     def __init__(self, rules_list):
-        """Инициализация чекера именования."""
         super().__init__(rules_list)
+        self.metrics = []
         self.total_functions = 0
         self.documented_functions = 0
-        self.metrics = []
+        self.total_classes = 0
+        self.documented_classes = 0
 
     def visit_FunctionDef(self, node):
-        """Проверка функции на соответствие PEP8 и наличие docstring."""
+        """Проверяет docstring у функции"""
         self.total_functions += 1
-
-        if not re.match(r"^[a-z_][a-z0-9_]*$", node.name):
+        if not self.SNAKE_CASE_PATTERN.match(node.name):
             self.report(node, "STU-PY-04")
-
-        docstring = ast.get_docstring(node)
-        if not docstring:
+        doc = ast.get_docstring(node)
+        if not doc:
             self.report(node, "STU-PY-05")
         else:
             self.documented_functions += 1
+        self.generic_visit(node)
 
+    def visit_ClassDef(self, node):
+        """Проверяет docstring у классов"""
+        self.total_classes += 1
+        if not self.PASCAL_CASE_PATTERN.match(node.name):
+            self.report(node, "STU-PY-04")
+        doc = ast.get_docstring(node)
+        if not doc:
+            self.report(node, "STU-PY-05")
+        else:
+            self.documented_classes += 1
         self.generic_visit(node)
 
     def finalize_metrics(self):
-        """Вычисляет  метрики."""
-        if self.total_functions > 0:
-            coverage = (self.documented_functions / self.total_functions) * 100
-            self.metrics.append(("DocstringCoverage", float(coverage), "Global"))
+        """Вычисляет итоговые метрики по документации и количеству объектов."""
         self.metrics.append(("FunctionCount", float(self.total_functions), "Global"))
+        self.metrics.append(("ClassCount", float(self.total_classes), "Global"))
+
+        if self.total_functions > 0:
+            f_coverage = (self.documented_functions / self.total_functions) * 100
+            self.metrics.append(("FunctionDocCoverage", float(f_coverage), "Global"))
+
+        if self.total_classes > 0:
+            c_coverage = (self.documented_classes / self.total_classes) * 100
+            self.metrics.append(("ClassDocCoverage", float(c_coverage), "Global"))
+
+        total_entities = self.total_functions + self.total_classes
+        documented_entities = self.documented_functions + self.documented_classes
+
+        if total_entities > 0:
+            total_coverage = (documented_entities / total_entities) * 100
+            self.metrics.append(("TotalDocCoverage", float(total_coverage), "Global"))
 
 
 class ComplexityChecker(BaseChecker):

@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # Сервис Базы Данных
+  db:
+    image: postgres:15
+    container_name: analyzer_db_cont
+    restart: always
+    environment:
+      POSTGRES_DB: analyzer_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: analyzer_app_cont
+    depends_on:
+      - db
+    environment:
+      - DB_NAME=analyzer_db
+      - DB_USER=postgres
+      - DB_PASSWORD=12123
+      - DB_HOST=db  # Важно: указываем имя сервиса базы данных
+      - DB_PORT=5432
+    ports:
+      - "8000:8000"
+
+volumes:
+  postgres_data:

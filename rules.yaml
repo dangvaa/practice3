@@ -47,11 +47,11 @@ rules:
 
   - id: "STU-PY-05"
     name: "MissingDocstring"
-    description: "Отсутствие строки документации (docstring) у публичного модуля, класса или функции."
+    description: "Отсутствие строки документации (docstring) у публичного класса или функции."
     severity: "MINOR"
     traceability:
       iso_25010: "Maintainability"
-    check_target: ["Module", "FunctionDef", "ClassDef"]
+    check_target: ["FunctionDef", "ClassDef"]
 
   - id: "STU-PY-06"
     name: "HardcodedAbsolutePath"

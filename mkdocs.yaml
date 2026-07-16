@@ -20,6 +20,7 @@ theme:
 nav:
   - "Введение": "index.md"
   - "Установка": "installation.md"
+  - "Развертывание в Docker": "docker.md"
   - "Архитектура": "architecture.md"
   - "Реализованные правила": "rules.md"
   - "Руководство для разработчика": "dev_guide.md"
